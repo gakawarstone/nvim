@@ -21,4 +21,6 @@ return require('packer').startup(function()
     -- Snippets plugin
     use 'L3MON4D3/LuaSnip'
 
+    use 'vim-python/python-syntax'
+
 end)

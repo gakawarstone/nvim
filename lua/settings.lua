@@ -10,3 +10,11 @@ opt.relativenumber = true           -- Вкл. относительную нум
 -----------------------------------------------------------
 opt.termguicolors = true      --  24-bit RGB colors
 cmd'colorscheme onedark'
+
+require'cmp'.setup {
+  sources = {
+    { name = 'nvim_lsp' }
+  }
+}
+
+g.python_highlight_all = 1
