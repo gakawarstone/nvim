@@ -1,10 +1,11 @@
 vim.cmd [[packadd packer.nvim]]
 
+
 return require('packer').startup(function()
     -- Packer сам себя
     use 'wbthomason/packer.nvim'
 
-    use 'joshdick/onedark.vim'
+    use 'navarasu/onedark.nvim'
 
     -- Highlight, edit, and navigate code using a fast incremental parsing library
     use 'nvim-treesitter/nvim-treesitter'
@@ -21,6 +22,11 @@ return require('packer').startup(function()
     -- Snippets plugin
     use 'L3MON4D3/LuaSnip'
 
-    use 'vim-python/python-syntax'
+    use { 'kyazdani42/nvim-tree.lua',
+    requires = 'kyazdani42/nvim-web-devicons',
+    config = function() require'nvim-tree'.setup {} end, }
+
+
+--    use 'vim-python/python-syntax'
 
 end)

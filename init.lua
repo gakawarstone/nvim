@@ -1,5 +1,6 @@
 require('plugins')
-require('settings') 
+require('theme')
 require('keymaps')
 require('lsp.lua')
 require('lsp.python')
+require('settings')
