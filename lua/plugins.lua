@@ -69,4 +69,12 @@ return require("packer").startup(function()
 			require("toggleterm").setup()
 		end,
 	})
+
+    -- Autopair
+	use({
+		"windwp/nvim-autopairs",
+		config = function()
+			require("nvim-autopairs").setup({})
+		end,
+	})
 end)
