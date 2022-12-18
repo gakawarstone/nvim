@@ -40,7 +40,7 @@ return require("packer").startup(function()
 
 	use("mhartington/formatter.nvim")
 
-    -- Todo highlighter
+	-- Todo highlighter
 	use({
 		"folke/todo-comments.nvim",
 		requires = "nvim-lua/plenary.nvim",
@@ -50,6 +50,14 @@ return require("packer").startup(function()
 				-- or leave it empty to use the default settings
 				-- refer to the configuration section below
 			})
+		end,
+	})
+
+	-- Comments
+	use({
+		"numToStr/Comment.nvim",
+		config = function()
+			require("Comment").setup()
 		end,
 	})
 end)
