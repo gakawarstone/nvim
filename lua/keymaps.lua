@@ -31,3 +31,5 @@ map("n", "gt", "<C-o>", default_opts)
 map("n", "<leader>ff", ':Telescope find_files<CR>', default_opts)
 map("n", "<leader>fg", ':Telescope live_grep<CR>', default_opts)
 
+-- ToggleTerm
+map("n", "<leader>ot", ':ToggleTerm direction=float<CR>', default_opts)

@@ -60,4 +60,13 @@ return require("packer").startup(function()
 			require("Comment").setup()
 		end,
 	})
+
+	-- Float terminal
+	use({
+		"akinsho/toggleterm.nvim",
+		tag = "*",
+		config = function()
+			require("toggleterm").setup()
+		end,
+	})
 end)
