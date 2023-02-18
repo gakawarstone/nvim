@@ -70,11 +70,37 @@ return require("packer").startup(function()
 		end,
 	})
 
-    -- Autopair
+	-- Autopair
 	use({
 		"windwp/nvim-autopairs",
 		config = function()
 			require("nvim-autopairs").setup({})
+		end,
+	})
+
+	-- Packer
+	use({
+		"jackMort/ChatGPT.nvim",
+		config = function()
+			require("chatgpt").setup({
+				-- optional configuration
+			})
+		end,
+		requires = {
+			"MunifTanjim/nui.nvim",
+			"nvim-lua/plenary.nvim",
+			"nvim-telescope/telescope.nvim",
+		},
+	})
+
+	-- Wakatime
+	use("wakatime/vim-wakatime")
+
+	-- Vim in browser
+	use({
+		"glacambre/firenvim",
+		run = function()
+			vim.fn["firenvim#install"](0)
 		end,
 	})
 end)

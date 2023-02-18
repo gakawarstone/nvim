@@ -23,13 +23,21 @@ map("n", "<leader>tf", ":NvimTreeFocus<CR>", default_opts)
 
 -- Go definition using LSP
 map("n", "gd", ":lua vim.lsp.buf.definition()<CR>", default_opts)
+map("n", "K", "<cmd>lua vim.lsp.buf.hover()<CR>", default_opts)
+map("n", "<leader>ca", "<cmd>lua vim.lsp.buf.code_action()<CR>", default_opts)
 
 -- Jump list gt
 map("n", "gt", "<C-o>", default_opts)
 
 -- Telescope
-map("n", "<leader>ff", ':Telescope find_files<CR>', default_opts)
-map("n", "<leader>fg", ':Telescope live_grep<CR>', default_opts)
+map("n", "<leader>ff", ":Telescope find_files<CR>", default_opts)
+map("n", "<leader>fg", ":Telescope live_grep<CR>", default_opts)
 
 -- ToggleTerm
-map("n", "<leader>ot", ':ToggleTerm direction=float<CR>', default_opts)
+map("n", "<leader>ot", ":ToggleTerm direction=float<CR>", default_opts)
+
+-- Lazygit
+map("n", "<leader><leader>g", "<cmd>lua _Lazygit_toggle()<CR>", default_opts)
+
+-- ChatGPT
+map("n", "<leader>gpt", ":ChatGPT<CR>", default_opts)

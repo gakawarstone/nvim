@@ -40,6 +40,7 @@ require("formatter").setup({
 		markdown = Markdown_formatter,
 		lua = Lua_formatter,
 		python = Python_formatter,
+		solidity = Solidity_formatter,
 	},
 })
 
@@ -50,3 +51,11 @@ augroup FormatAutogroup
   autocmd BufWritePost * FormatWrite
 augroup END
 ]])
+
+-- TODO: Move
+local Terminal = require("toggleterm.terminal").Terminal
+local lazygit = Terminal:new({ cmd = "lazygit", hidden = true, direction = "float" })
+
+function _Lazygit_toggle()
+	lazygit:toggle()
+end
