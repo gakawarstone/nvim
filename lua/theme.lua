@@ -6,6 +6,7 @@ require("onedark").setup({
 })
 
 require("nvim-treesitter.configs").setup({
+	ensure_installed = { "lua", "python", "v", "solidity", "markdown" },
 	highlight = {
 		enable = true,
 	},

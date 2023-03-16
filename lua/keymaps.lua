@@ -24,7 +24,8 @@ map("n", "<leader>tf", ":NvimTreeFocus<CR>", default_opts)
 -- Go definition using LSP
 map("n", "gd", ":lua vim.lsp.buf.definition()<CR>", default_opts)
 map("n", "K", "<cmd>lua vim.lsp.buf.hover()<CR>", default_opts)
-map("n", "<leader>ca", "<cmd>lua vim.lsp.buf.code_action()<CR>", default_opts)
+map("n", "<leader>a", ":lua vim.lsp.buf.code_action()<CR>", default_opts)
+map("n", "<leader>e", ":lua vim.diagnosic.open_float<CR>", default_opts)
 
 -- Jump list gt
 map("n", "gt", "<C-o>", default_opts)
@@ -41,3 +42,14 @@ map("n", "<leader><leader>g", "<cmd>lua _Lazygit_toggle()<CR>", default_opts)
 
 -- ChatGPT
 map("n", "<leader>gpt", ":ChatGPT<CR>", default_opts)
+
+--- Obsidian
+local obs = require("obs")
+
+map("n", "<leader>nn", "<cmd>lua require('obs').vault:follow_link()<CR>", default_opts)
+
+vim.keymap.set("n", "<leader>nT", function()
+	obs.vault:run_if_note(function()
+		obs.vault:find_and_insert_template()
+	end)
+end, { desc = "Inserts notes Template" })

@@ -1,6 +1,6 @@
 vim.cmd([[packadd packer.nvim]])
 
-return require("packer").startup(function()
+return require("packer").startup(function(use)
 	-- Packer сам себя
 	use("wbthomason/packer.nvim")
 
@@ -10,7 +10,12 @@ return require("packer").startup(function()
 	use("nvim-treesitter/nvim-treesitter")
 	-- Collection of configurations for built-in LSP client
 	use("neovim/nvim-lspconfig")
-	use("williamboman/nvim-lsp-installer")
+	-- use("williamboman/nvim-lsp-installer") FIXME: deprecated
+	use("williamboman/mason.nvim")
+	use("williamboman/mason-lspconfig.nvim")
+
+	use("jose-elias-alvarez/null-ls.nvim")
+
 	-- Автодополнялка
 	use("hrsh7th/nvim-cmp")
 	use("hrsh7th/cmp-nvim-lsp")
@@ -102,5 +107,35 @@ return require("packer").startup(function()
 		run = function()
 			vim.fn["firenvim#install"](0)
 		end,
+	})
+
+	use("cheap-glitch/vim-v")
+
+	-- use({ "neoclide/coc.nvim", branch = "release" })
+
+	use({
+		"lewis6991/gitsigns.nvim",
+		config = function()
+			require("gitsigns").setup()
+		end,
+	})
+
+	use({
+		"nvim-neo-tree/neo-tree.nvim",
+		branch = "v2.x",
+		requires = {
+			"nvim-lua/plenary.nvim",
+			"nvim-tree/nvim-web-devicons", -- not strictly required, but recommended
+			"MunifTanjim/nui.nvim",
+		},
+	})
+
+	use({
+		"IlyasYOY/obs.nvim",
+		requires = {
+			"IlyasYOY/coredor.nvim",
+			"nvim-lua/plenary.nvim",
+			"nvim-telescope/telescope.nvim",
+		},
 	})
 end)
