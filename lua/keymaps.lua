@@ -53,3 +53,7 @@ vim.keymap.set("n", "<leader>nT", function()
 		obs.vault:find_and_insert_template()
 	end)
 end, { desc = "Inserts notes Template" })
+
+vim.keymap.set("n", "<leader>nff", function()
+	obs.vault:find_note()
+end, { desc = "notes files find" })
