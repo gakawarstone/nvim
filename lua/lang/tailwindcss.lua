@@ -1,8 +1,6 @@
 local lsp = require("lspconfig")
 
-lsp.tsserver.setup({
+lsp.tailwindcss.setup({
 	capabilities = Capabilities,
 	on_attach = On_attach,
 })
-
-Typescript_formatter = { require("formatter.defaults.prettier") }

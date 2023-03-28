@@ -138,4 +138,11 @@ return require("packer").startup(function(use)
 			"nvim-telescope/telescope.nvim",
 		},
 	})
+
+	use({
+		"windwp/nvim-ts-autotag",
+		config = function()
+			require("nvim-ts-autotag").setup()
+		end,
+	})
 end)

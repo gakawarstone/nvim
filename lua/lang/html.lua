@@ -1,8 +1,8 @@
 local lsp = require("lspconfig")
 
-lsp.tsserver.setup({
+lsp.html.setup({
 	capabilities = Capabilities,
 	on_attach = On_attach,
 })
 
-Typescript_formatter = { require("formatter.defaults.prettier") }
+Html_formatter = { require("formatter.defaults.prettier") }

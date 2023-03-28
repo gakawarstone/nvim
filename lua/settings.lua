@@ -37,6 +37,8 @@ require("formatter").setup({
 		lua = Lua_formatter,
 		python = Python_formatter,
 		solidity = Solidity_formatter,
+		typescript = Typescript_formatter,
+		html = Html_formatter,
 	},
 })
 
@@ -78,6 +80,8 @@ vim.api.nvim_create_autocmd({ "BufEnter" }, {
 		end
 	end,
 })
+
+require("luasnip.loaders.from_vscode").lazy_load()
 
 -- Autoformat on save
 cmd([[
