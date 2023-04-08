@@ -145,4 +145,9 @@ return require("packer").startup(function(use)
 			require("nvim-ts-autotag").setup()
 		end,
 	})
+
+	use({
+		"nvim-lualine/lualine.nvim",
+		requires = { "nvim-tree/nvim-web-devicons", opt = true },
+	})
 end)
