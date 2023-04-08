@@ -31,6 +31,18 @@ require("nvim-tree").setup({
 	},
 })
 
+require("lualine").setup({
+	options = {
+		theme = "onedark",
+		globalstatus = true,
+	},
+	sections = {
+		lualine_b = { "branch" },
+		lualine_x = { "filetype" },
+		lualine_y = {},
+	},
+})
+
 require("formatter").setup({
 	filetype = {
 		markdown = Markdown_formatter,
@@ -39,6 +51,7 @@ require("formatter").setup({
 		solidity = Solidity_formatter,
 		typescript = Typescript_formatter,
 		html = Html_formatter,
+		yaml = Yaml_formatter,
 	},
 })
 
