@@ -17,12 +17,56 @@ opt.shiftwidth = 4 -- shift 4 spaces when tab
 opt.tabstop = 4 -- 1 tab == 4 spaces
 opt.smartindent = true -- autoindent new lines
 
+require("nvim-web-devicons").setup({
+	-- override_by_filename = {
+	-- 	["dockerfile"] = {
+	-- 		icon = "",
+	-- 		color = "#458ee6",
+	-- 		cterm_color = "68",
+	-- 		name = "Docker",
+	-- 	},
+	-- 	[".dockerignore"] = {
+	-- 		icon = "",
+	-- 		color = "#458ee6",
+	-- 		cterm_color = "68",
+	-- 		name = "Docker",
+	-- 	},
+	-- 	["docker-compose.yaml"] = {
+	-- 		icon = "",
+	-- 		color = "#458ee6",
+	-- 		cterm_color = "68",
+	-- 		name = "Docker",
+	-- 	},
+	-- 	["docker-compose.yml"] = {
+	-- 		icon = "",
+	-- 		color = "#458ee6",
+	-- 		cterm_color = "68",
+	-- 		name = "Docker",
+	-- 	},
+	-- },
+	override_by_extension = {
+		-- ["cs"] = {
+		-- 	icon = "",
+		-- 	-- color = "#596706",
+		-- 	color = "#005ca5",
+		-- 	cterm_color = "58",
+		-- 	name = "Cs",
+		-- },
+		["csproj"] = {
+			icon = "",
+			color = "#854CC7",
+			cterm_color = "58",
+			name = "Dotnet",
+		},
+	},
+})
+
 require("nvim-tree").setup({
 	view = {
 		adaptive_size = true,
-		mappings = {
-			list = { { key = "u", action = "dir_up" }, { key = "l", action = "cd" } },
-		},
+	},
+	mappings = {
+		list = { { key = "u", action = "dir_up" }, { key = "l", action = "cd" } },
 	},
 	actions = {
 		open_file = {
@@ -52,6 +96,8 @@ require("formatter").setup({
 		typescript = Typescript_formatter,
 		html = Html_formatter,
 		yaml = Yaml_formatter,
+		java = Java_formatter,
+		cs = Csharp_formatter,
 	},
 })
 
@@ -95,6 +141,13 @@ vim.api.nvim_create_autocmd({ "BufEnter" }, {
 })
 
 require("luasnip.loaders.from_vscode").lazy_load()
+
+local function open_nvim_tree()
+	-- open the tree
+	require("nvim-tree.api").tree.open()
+end
+
+vim.api.nvim_create_autocmd({ "VimEnter" }, { callback = open_nvim_tree })
 
 -- Autoformat on save
 cmd([[
