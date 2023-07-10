@@ -1,6 +1,7 @@
 require("onedark").setup({
 	highlights = {
 		["@variable"] = { fg = "$red" },
+		["@lsp.type.variable"] = { fg = "$red" },
 		TSImport = { fg = "$yellow" },
 	},
 })
