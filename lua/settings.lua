@@ -98,6 +98,7 @@ require("formatter").setup({
 		yaml = Yaml_formatter,
 		java = Java_formatter,
 		cs = Csharp_formatter,
+		rust = Rust_formatter,
 	},
 })
 
