@@ -17,56 +17,9 @@ opt.shiftwidth = 4 -- shift 4 spaces when tab
 opt.tabstop = 4 -- 1 tab == 4 spaces
 opt.smartindent = true -- autoindent new lines
 
-require("nvim-web-devicons").setup({
-	-- override_by_filename = {
-	-- 	["dockerfile"] = {
-	-- 		icon = "",
-	-- 		color = "#458ee6",
-	-- 		cterm_color = "68",
-	-- 		name = "Docker",
-	-- 	},
-	-- 	[".dockerignore"] = {
-	-- 		icon = "",
-	-- 		color = "#458ee6",
-	-- 		cterm_color = "68",
-	-- 		name = "Docker",
-	-- 	},
-	-- 	["docker-compose.yaml"] = {
-	-- 		icon = "",
-	-- 		color = "#458ee6",
-	-- 		cterm_color = "68",
-	-- 		name = "Docker",
-	-- 	},
-	-- 	["docker-compose.yml"] = {
-	-- 		icon = "",
-	-- 		color = "#458ee6",
-	-- 		cterm_color = "68",
-	-- 		name = "Docker",
-	-- 	},
-	-- },
-	override_by_extension = {
-		-- ["cs"] = {
-		-- 	icon = "",
-		-- 	-- color = "#596706",
-		-- 	color = "#005ca5",
-		-- 	cterm_color = "58",
-		-- 	name = "Cs",
-		-- },
-		["csproj"] = {
-			icon = "",
-			color = "#854CC7",
-			cterm_color = "58",
-			name = "Dotnet",
-		},
-	},
-})
-
 require("nvim-tree").setup({
 	view = {
 		adaptive_size = true,
-	},
-	mappings = {
-		list = { { key = "u", action = "dir_up" }, { key = "l", action = "cd" } },
 	},
 	actions = {
 		open_file = {
@@ -112,6 +65,8 @@ require("mason").setup({
 	},
 })
 
+require("leap").add_default_mappings()
+
 require("obs").setup({
 	vault_home = "~/Obsidian",
 })
@@ -143,12 +98,21 @@ vim.api.nvim_create_autocmd({ "BufEnter" }, {
 
 require("luasnip.loaders.from_vscode").lazy_load()
 
-local function open_nvim_tree()
-	-- open the tree
-	require("nvim-tree.api").tree.open()
-end
+-- local function open_nvim_tree()
+-- 	-- open the tree
+-- 	require("nvim-tree.api").tree.open()
+-- end
+--
+-- vim.api.nvim_create_autocmd({ "VimEnter" }, { callback = open_nvim_tree })
 
-vim.api.nvim_create_autocmd({ "VimEnter" }, { callback = open_nvim_tree })
+vim.api.nvim_create_autocmd("VimEnter", {
+	callback = function()
+		if vim.fn.argv(0) == "" then
+			-- require("nvim-tree.api").tree.open()
+			require("telescope.builtin").find_files()
+		end
+	end,
+})
 
 -- Autoformat on save
 cmd([[
