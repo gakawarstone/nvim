@@ -25,9 +25,6 @@ map("n", "gt", "<C-o>", default_opts)
 map("n", "<leader>ff", ":Telescope find_files<CR>", default_opts)
 map("n", "<leader>fg", ":Telescope live_grep<CR>", default_opts)
 
--- ChatGPT
-map("n", "<leader>gpt", ":ChatGPT<CR>", default_opts)
-
 vim.keymap.set("n", "<leader>nn", "<cmd>ObsNvimFollowLink<cr>")
 vim.keymap.set("n", "<leader>nr", "<cmd>ObsNvimRandomNote<cr>")
 vim.keymap.set("n", "<leader>nN", "<cmd>ObsNvimNewNote<cr>")
@@ -39,5 +36,3 @@ vim.keymap.set("n", "<leader>nb", "<cmd>ObsNvimBacklinks<cr>")
 vim.keymap.set("n", "<leader>nfj", "<cmd>ObsNvimFindInJournal<cr>")
 vim.keymap.set("n", "<leader>nff", "<cmd>ObsNvimFindNote<cr>")
 vim.keymap.set("n", "<leader>nfg", "<cmd>ObsNvimFindInNotes<cr>")
-
-vim.keymap.set("n", "<leader>ou", "<cmd>URLOpenUnderCursor<cr>")

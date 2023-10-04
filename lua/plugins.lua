@@ -1,28 +1,23 @@
 vim.cmd([[packadd packer.nvim]])
 
 return require("packer").startup(function(use)
-	-- Packer сам себя
 	use("wbthomason/packer.nvim")
 
 	use("navarasu/onedark.nvim")
 
-	-- Highlight, edit, and navigate code using a fast incremental parsing library
 	use("nvim-treesitter/nvim-treesitter")
-	-- Collection of configurations for built-in LSP client
 	use("neovim/nvim-lspconfig")
-	-- use("williamboman/nvim-lsp-installer") FIXME: deprecated
 	use("williamboman/mason.nvim")
 	use("williamboman/mason-lspconfig.nvim")
 
 	use("jose-elias-alvarez/null-ls.nvim")
 
-	-- Автодополнялка
 	use("hrsh7th/nvim-cmp")
 	use("hrsh7th/cmp-nvim-lsp")
 	use("hrsh7th/cmp-buffer")
 	use("saadparwaiz1/cmp_luasnip")
-	--- Автодополнлялка к файловой системе
 	use("hrsh7th/cmp-path")
+
 	-- Snippets plugin
 	use("L3MON4D3/LuaSnip")
 
@@ -45,20 +40,14 @@ return require("packer").startup(function(use)
 
 	use("mhartington/formatter.nvim")
 
-	-- Todo highlighter
 	use({
 		"folke/todo-comments.nvim",
 		requires = "nvim-lua/plenary.nvim",
 		config = function()
-			require("todo-comments").setup({
-				-- your configuration comes here
-				-- or leave it empty to use the default settings
-				-- refer to the configuration section below
-			})
+			require("todo-comments").setup({})
 		end,
 	})
 
-	-- Comments
 	use({
 		"numToStr/Comment.nvim",
 		config = function()
@@ -66,7 +55,6 @@ return require("packer").startup(function(use)
 		end,
 	})
 
-	-- Autopair
 	use({
 		"windwp/nvim-autopairs",
 		config = function()
@@ -74,35 +62,10 @@ return require("packer").startup(function(use)
 		end,
 	})
 
-	-- Packer
-	use({
-		"jackMort/ChatGPT.nvim",
-		config = function()
-			require("chatgpt").setup({
-				-- optional configuration
-			})
-		end,
-		requires = {
-			"MunifTanjim/nui.nvim",
-			"nvim-lua/plenary.nvim",
-			"nvim-telescope/telescope.nvim",
-		},
-	})
-
 	-- Wakatime
 	use("wakatime/vim-wakatime")
 
-	-- Vim in browser
-	use({
-		"glacambre/firenvim",
-		run = function()
-			vim.fn["firenvim#install"](0)
-		end,
-	})
-
 	use("cheap-glitch/vim-v")
-
-	-- use({ "neoclide/coc.nvim", branch = "release" })
 
 	use({
 		"lewis6991/gitsigns.nvim",
@@ -116,7 +79,7 @@ return require("packer").startup(function(use)
 		branch = "v2.x",
 		requires = {
 			"nvim-lua/plenary.nvim",
-			"nvim-tree/nvim-web-devicons", -- not strictly required, but recommended
+			"nvim-tree/nvim-web-devicons",
 			"MunifTanjim/nui.nvim",
 		},
 	})
