@@ -38,3 +38,5 @@ require("nvim-web-devicons").setup({
 		},
 	},
 })
+
+vim.cmd("colorscheme onedark")
