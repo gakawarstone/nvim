@@ -7,4 +7,4 @@ lsp.pylsp.setup({
 	on_attach = On_attach,
 })
 
-Python_formatter = { require("formatter.filetypes.python").autopep8 }
+Python_formatter = { require("formatter.filetypes.python").black }
