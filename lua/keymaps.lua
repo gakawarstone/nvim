@@ -24,6 +24,11 @@ map("n", "gt", "<C-o>", default_opts)
 -- Telescope
 map("n", "<leader>ff", ":Telescope find_files<CR>", default_opts)
 map("n", "<leader>fg", ":Telescope live_grep<CR>", default_opts)
+map("n", "<leader>gc", ":Telescope git_commits<CR>", default_opts)
+map("n", "<leader>gb", ":Telescope git_branches<CR>", default_opts)
+
+map("n", "<leader>cn", ":cn<CR>", default_opts)
+map("n", "<leader>cp", ":cp<CR>", default_opts)
 
 vim.keymap.set("n", "<leader>nn", "<cmd>ObsNvimFollowLink<cr>")
 vim.keymap.set("n", "<leader>nr", "<cmd>ObsNvimRandomNote<cr>")
