@@ -52,6 +52,13 @@ require("lazy").setup({
 	},
 
 	{
+		"windwp/nvim-autopairs",
+		config = function()
+			require("nvim-autopairs").setup({})
+		end,
+	},
+
+	{
 		"numToStr/Comment.nvim",
 		config = function()
 			require("Comment").setup()
@@ -70,7 +77,7 @@ require("lazy").setup({
 
 	{
 		"nvim-neo-tree/neo-tree.nvim",
-		branch = "v2.x",
+		branch = "v3.x",
 		dependencies = {
 			"nvim-lua/plenary.nvim",
 			"nvim-tree/nvim-web-devicons",
@@ -85,6 +92,8 @@ require("lazy").setup({
 			"nvim-lua/plenary.nvim",
 			"nvim-telescope/telescope.nvim",
 		},
+		lazy = true,
+		ft = "md",
 	},
 
 	{
