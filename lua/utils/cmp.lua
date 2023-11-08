@@ -26,6 +26,7 @@ cmp.setup({
 		{ name = "path" },
 		{ name = "obs" },
 		{ name = "vsnip" },
+		{ name = "natdat" },
 	},
 	mapping = cmp.mapping.preset.insert({
 		["<C-Space>"] = cmp.mapping.complete(),

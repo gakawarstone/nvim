@@ -31,6 +31,7 @@ require("lazy").setup({
 	"hrsh7th/cmp-buffer",
 	"saadparwaiz1/cmp_luasnip",
 	"hrsh7th/cmp-path",
+	{ "Gelio/cmp-natdat", config = true },
 
 	"L3MON4D3/LuaSnip",
 	"powerman/vim-plugin-ruscmd",
