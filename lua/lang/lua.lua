@@ -1,6 +1,7 @@
 local capabilities = require("cmp_nvim_lsp").default_capabilities()
 local api = vim.api
 local lspconfig = require("lspconfig")
+local fmt = require("conform")
 
 local runtime_path = vim.split(package.path, ";")
 table.insert(runtime_path, "lua/?.lua")
@@ -34,6 +35,4 @@ lspconfig.lua_ls.setup({
 	},
 })
 
-Lua_formatter = {
-	require("formatter.filetypes.lua").stylua,
-}
+fmt.formatters_by_ft.lua = { "stylua" }

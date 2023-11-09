@@ -1,8 +1,9 @@
 local lsp = require("lspconfig")
+local fmt = require("conform")
 
 lsp.html.setup({
 	capabilities = Capabilities,
 	on_attach = On_attach,
 })
 
-Html_formatter = { require("formatter.defaults.prettier") }
+fmt.formatters_by_ft.html = { "prettier" }

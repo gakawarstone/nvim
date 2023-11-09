@@ -1,1 +1,1 @@
-Yaml_formatter = { require("formatter.filetypes.yaml").yamlfmt }
+require("conform").formatters_by_ft.yaml = { "yamlfmt" }

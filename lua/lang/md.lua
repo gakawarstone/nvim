@@ -1,1 +1,3 @@
-Markdown_formatter = { require("formatter.filetypes.markdown").prettier }
+local fmt = require("conform")
+
+fmt.formatters_by_ft.markdown = { "prettier" }

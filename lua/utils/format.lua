@@ -1,22 +1,8 @@
-require("formatter").setup({
-	filetype = {
-		markdown = Markdown_formatter,
-		lua = Lua_formatter,
-		python = Python_formatter,
-		solidity = Solidity_formatter,
-		typescript = Typescript_formatter,
-		html = Html_formatter,
-		yaml = Yaml_formatter,
-		java = Java_formatter,
-		cs = Csharp_formatter,
-		rust = Rust_formatter,
-	},
-})
+require("conform").setup({})
 
--- Autoformat on save
-vim.cmd([[
-augroup FormatAutogroup
-  autocmd!
-  autocmd BufWritePost * FormatWrite
-augroup END
-]])
+vim.api.nvim_create_autocmd("BufWritePre", {
+	pattern = "*",
+	callback = function(args)
+		require("conform").format({ bufnr = args.buf })
+	end,
+})

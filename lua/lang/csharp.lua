@@ -1,4 +1,5 @@
 local lsp = require("lspconfig")
+local fmt = require("conform")
 
 -- dotnet tool install --global csharp-ls
 lsp.csharp_ls.setup({
@@ -6,11 +7,4 @@ lsp.csharp_ls.setup({
 	on_attach = On_attach,
 })
 
--- Csharp_formatter = { require("formatter.filetypes.cs").dotnetformat }
-function Csharp_formatter()
-	return {
-		exe = "dotnet-csharpier",
-		args = {},
-		stdin = true,
-	}
-end
+fmt.formatters_by_ft.cs = { "csharpier" }

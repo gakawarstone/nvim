@@ -42,7 +42,7 @@ require("lazy").setup({
 		dependencies = { { "nvim-lua/plenary.nvim" } },
 	},
 
-	"mhartington/formatter.nvim",
+	"stevearc/conform.nvim",
 
 	{
 		"folke/todo-comments.nvim",
