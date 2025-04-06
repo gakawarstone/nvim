@@ -12,6 +12,7 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
+	require("_plugins.snacks"),
 	"navarasu/onedark.nvim",
 	"nvim-treesitter/nvim-treesitter",
 	{
@@ -26,14 +27,6 @@ require("lazy").setup({
 
 	"williamboman/mason.nvim",
 
-	"hrsh7th/nvim-cmp",
-	"hrsh7th/cmp-nvim-lsp",
-	"hrsh7th/cmp-buffer",
-	"saadparwaiz1/cmp_luasnip",
-	"hrsh7th/cmp-path",
-	{ "Gelio/cmp-natdat", config = true },
-
-	"L3MON4D3/LuaSnip",
 	"powerman/vim-plugin-ruscmd",
 
 	{
@@ -77,16 +70,6 @@ require("lazy").setup({
 	},
 
 	{
-		"nvim-neo-tree/neo-tree.nvim",
-		branch = "v3.x",
-		dependencies = {
-			"nvim-lua/plenary.nvim",
-			"nvim-tree/nvim-web-devicons",
-			"MunifTanjim/nui.nvim",
-		},
-	},
-
-	{
 		"IlyasYOY/obs.nvim",
 		dependencies = {
 			"IlyasYOY/coredor.nvim",
@@ -110,4 +93,36 @@ require("lazy").setup({
 	},
 
 	"ggandor/leap.nvim",
+
+	"lhKipp/nvim-nu",
+
+	"sindrets/diffview.nvim",
+
+	require("_plugins.leap"),
+	require("_plugins.blink"),
+	-- require("_plugins.fastspell"),
+	{
+		"glacambre/firenvim",
+		build = ":call firenvim#install(0)",
+	},
+
+	-- |:ColorizerAttachToBuffer|
+	-- NOTE: error detected if opens file
+	-- {
+	-- 	"norcalli/nvim-colorizer.lua",
+	-- 	-- lazy = true,
+	-- 	config = function()
+	-- 		require("colorizer").setup()
+	-- 	end,
+	-- },
+	{
+		"uga-rosa/ccc.nvim",
+		config = function()
+			require("ccc").setup({
+				highlighter = {
+					auto_enable = true,
+				},
+			})
+		end,
+	},
 })
