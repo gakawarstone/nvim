@@ -8,4 +8,4 @@ lsp.pyright.setup({
 	on_attach = On_attach,
 })
 
-fmt.formatters_by_ft.python = { "ruff_format", "ruff_fix" }
+fmt.formatters_by_ft.python = { "ruff_format" }
