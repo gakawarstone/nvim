@@ -3,6 +3,7 @@ local default_opts = { noremap = true, silent = true }
 
 -- Типа 'Нажимает' на ESC при быстром нажатии jj, чтобы не тянутся
 map("i", "jj", "<Esc>", { noremap = true })
+map("t", "jj", "<C-\\><C-n>", { noremap = true })
 
 -- Стрелочки откл. Использовать hjkl
 map("", "<up>", ':echoe "Use k"<CR>', default_opts)
