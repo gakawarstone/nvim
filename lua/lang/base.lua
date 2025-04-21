@@ -1,9 +1,9 @@
--- Capabilities = require("cmp_nvim_lsp").default_capabilities()
 Capabilities = require("blink.cmp").get_lsp_capabilities(capabilities)
 
 On_attach = function(client, bufnr)
-	-- Enable completion triggered by <c-x><c-o>
-	vim.api.nvim_buf_set_option(bufnr, "omnifunc", "v:lua.vim.lsp.omnifunc")
+	vim.diagnostic.config({
+		virtual_text = true,
+	})
 
 	-- Mappings.
 	-- See `:help vim.lsp.*` for documentation on any of the below functions
