@@ -125,4 +125,56 @@ require("lazy").setup({
 			})
 		end,
 	},
+	require("_plugins.markdown_preview"),
+
+	{
+		"milanglacier/minuet-ai.nvim",
+		config = function()
+			require("minuet").setup({
+				provider = "openai_fim_compatible",
+				-- n_completions = 1, -- recommend for local model for resource saving
+				-- -- I recommend beginning with a small context window size and incrementally
+				-- -- expanding it, depending on your local computing power. A context window
+				-- -- of 512, serves as an good starting point to estimate your computing
+				-- -- power. Once you have a reliable estimate of your local computing power,
+				-- -- you should adjust the context window to a larger value.
+				context_window = 512,
+				provider_options = {
+					openai_fim_compatible = {
+						-- For Windows users, TERM may not be present in environment variables.
+						-- Consider using APPDATA instead.
+						api_key = "TERM",
+						name = "Ollama",
+						end_point = "http://localhost:11434/v1/completions",
+						model = "qwen2.5-coder:14b",
+						optional = {
+							max_tokens = 56,
+							top_p = 0.9,
+						},
+					},
+				},
+				-- Your configuration options here
+				-- provider = "openai_compatible",
+				-- request_timeout = 2.5,
+				-- throttle = 1500, -- Increase to reduce costs and avoid rate limits
+				-- debounce = 600, -- Increase to reduce costs and avoid rate limits
+				-- provider_options = {
+				-- 	openai_compatible = {
+				-- 		api_key = "OPENROUTER_API_KEY",
+				-- 		end_point = "https://openrouter.ai/api/v1/chat/completions",
+				-- 		model = "deepseek/deepseek-chat-v3-0324",
+				-- 		name = "Openrouter",
+				-- 		optional = {
+				-- 			max_tokens = 56,
+				-- 			top_p = 0.9,
+				-- 			provider = {
+				-- 				-- Prioritize throughput for faster completion
+				-- 				sort = "throughput",
+				-- 			},
+				-- 		},
+				-- 	},
+				-- },
+			})
+		end,
+	},
 })
