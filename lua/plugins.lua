@@ -125,4 +125,100 @@ require("lazy").setup({
 			})
 		end,
 	},
+	require("_plugins.markdown_preview"),
+
+	{
+		"milanglacier/minuet-ai.nvim",
+		config = function()
+			-- require("minuet").setup({
+			-- 	-- provider = "openai_fim_compatible",
+			-- 	provider = "openai_fim_compatible",
+			-- 	-- provider = "gemini",
+			-- 	-- n_completions = 1, -- recommend for local model for resource saving
+			-- 	-- -- I recommend beginning with a small context window size and incrementally
+			-- 	-- -- expanding it, depending on your local computing power. A context window
+			-- 	-- -- of 512, serves as an good starting point to estimate your computing
+			-- 	-- -- power. Once you have a reliable estimate of your local computing power,
+			-- 	-- -- you should adjust the context window to a larger value.
+			-- 	context_window = 512,
+			-- 	provider_options = {
+			-- 		gemini = {
+			-- 			model = "gemini-2.0-flash",
+			-- 			-- system = "see [Prompt] section for the default value",
+			-- 			-- few_shots = "see [Prompt] section for the default value",
+			-- 			-- chat_input = "See [Prompt Section for default value]",
+			-- 			-- stream = true,
+			-- 			api_key = "GEMINI_API_KEY",
+			-- 			-- optional = {
+			-- 			-- 	generationConfig = {
+			-- 			-- 		maxOutputTokens = 256,
+			-- 			-- 		-- When using `gemini-2.5-flash`, it is recommended to entirely
+			-- 			-- 		-- disable thinking for faster completion retrieval.
+			-- 			-- 		thinkingConfig = {
+			-- 			-- 			thinkingBudget = 0,
+			-- 			-- 		},
+			-- 			-- 	},
+			-- 			-- 	safetySettings = {
+			-- 			-- 		{
+			-- 			-- 			-- HARM_CATEGORY_HATE_SPEECH,
+			-- 			-- 			-- HARM_CATEGORY_HARASSMENT
+			-- 			-- 			-- HARM_CATEGORY_SEXUALLY_EXPLICIT
+			-- 			-- 			category = "HARM_CATEGORY_DANGEROUS_CONTENT",
+			-- 			-- 			-- BLOCK_NONE
+			-- 			-- 			threshold = "BLOCK_ONLY_HIGH",
+			-- 			-- 		},
+			-- 			-- 	},
+			-- 			-- },
+			-- 		},
+			-- 		-- openai_fim_compatible = {
+			-- 		-- openai_compatible = {
+			-- 		-- 	-- For Windows users, TERM may not be present in environment variables.
+			-- 		-- 	-- Consider using APPDATA instead.
+			-- 		-- 	api_key = "TERM",
+			-- 		-- 	name = "Ollama",
+			-- 		-- 	-- end_point = "http://localhost:11434/v1/completions",
+			-- 		-- 	end_point = "http://localhost:11434/v1/generate",
+			-- 		-- 	model = "deepseek-r1:8b",
+			-- 		-- 	-- model = "JetBrains/Mellum-4b-base",
+			-- 		-- 	-- model = "deepcoder",
+			-- 		-- 	-- optional = {
+			-- 		-- 	-- 	max_tokens = 300,
+			-- 		-- 	-- 	top_p = 0.9,
+			-- 		-- 	-- },
+			-- 		-- },
+			-- 		openai_fim_compatible = {
+			-- 			api_key = "OPENROUTER_API_KEY",
+			-- 			end_point = "https://openrouter.ai/api/v1/chat/completions",
+			-- 			model = "deepseek/deepseek-r1-0528:free",
+			-- 			-- model = "deepseek/deepseek-r1-0528-qwen3-8b",
+			-- 			name = "Openrouter",
+			-- 			optional = {
+			-- 				-- max_tokens =200,
+			-- 				top_p = 0.9,
+			-- 				provider = {
+			-- 					-- Prioritize throughput for faster completion
+			-- 					sort = "throughput",
+			-- 				},
+			-- 			},
+			-- 		},
+			-- 	},
+			-- 	-- Your configuration options here
+			-- 	-- provider = "openai_compatible",
+			-- 	-- request_timeout = 2.5,
+			-- 	-- throttle = 1500, -- Increase to reduce costs and avoid rate limits
+			-- 	-- debounce = 600, -- Increase to reduce costs and avoid rate limits
+			-- 	-- provider_options = {
+			-- 	-- },
+			-- })
+		end,
+	},
+
+	{
+		"olimorris/codecompanion.nvim",
+		opts = {},
+		dependencies = {
+			"nvim-lua/plenary.nvim",
+			"nvim-treesitter/nvim-treesitter",
+		},
+	},
 })
