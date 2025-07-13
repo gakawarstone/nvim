@@ -36,16 +36,15 @@ return {
 		},
 
 		appearance = {
-			-- 'mono' (default) for 'Nerd Font Mono' or 'normal' for 'Nerd Font'
-			-- Adjusts spacing to ensure icons are aligned
 			nerd_font_variant = "mono",
 		},
 
-		-- Default list of enabled providers defined so that you can extend it
-		-- elsewhere in your config, without redefining it, due to `opts_extend`
 		sources = {
-			default = { "lsp", "path", "snippets", "buffer", "minuet" },
+			-- default = { "lsp", "path", "snippets", "buffer" },
+			default = { "lsp", "path", "snippets", "buffer", "copilot" },
+			-- default = { "lsp", "path", "snippets", "buffer", "minuet" },
 			-- default = { "minuet" },
+			-- default = { "copilot" },
 			providers = {
 				minuet = {
 					name = "minuet",
@@ -55,6 +54,13 @@ return {
 					-- since minuet.config.request_timeout is in seconds
 					timeout_ms = 300,
 					score_offset = 50, -- Gives minuet higher priority among suggestions
+				},
+				copilot = {
+					name = "copilot",
+					module = "blink-copilot",
+					timeout_ms = 300,
+					score_offset = 50,
+					async = true,
 				},
 			},
 		},
