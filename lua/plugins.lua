@@ -228,11 +228,11 @@ require("lazy").setup({
 		cmd = "Copilot",
 		event = "InsertEnter",
 		opts = {
-			suggestion = { enabled = false },
+			suggestion = { enabled = false, debounce = 3000 },
 			panel = { enabled = false },
 			filetypes = {
-				markdown = true,
-				help = true,
+				python = true,
+				["*"] = false,
 			},
 		},
 	},
