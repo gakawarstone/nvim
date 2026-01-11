@@ -39,4 +39,5 @@ require("nvim-web-devicons").setup({
 	},
 })
 
-vim.cmd("colorscheme onedark")
+-- vim.cmd("colorscheme onedark")
+vim.cmd("colorscheme catppuccin")

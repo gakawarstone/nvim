@@ -319,4 +319,5 @@ require("lazy").setup({
 			-- And ensure your markdown image paths point to the correct local or remote source
 		end,
 	},
+	{ "catppuccin/nvim", name = "catppuccin", priority = 1000 },
 })
