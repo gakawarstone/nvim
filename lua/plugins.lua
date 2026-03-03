@@ -14,7 +14,7 @@ vim.opt.rtp:prepend(lazypath)
 require("lazy").setup({
 	require("_plugins.snacks"),
 	"navarasu/onedark.nvim",
-	"nvim-treesitter/nvim-treesitter",
+	{ "nvim-treesitter/nvim-treesitter", branch = "master" },
 	{
 		"kyazdani42/nvim-tree.lua",
 		dependencies = "kyazdani42/nvim-web-devicons",
@@ -92,7 +92,7 @@ require("lazy").setup({
 		dependencies = { "nvim-tree/nvim-web-devicons", opt = true },
 	},
 
-	"ggandor/leap.nvim",
+	{ url = "https://codeberg.org/andyg/leap.nvim" },
 
 	"lhKipp/nvim-nu",
 
@@ -218,7 +218,7 @@ require("lazy").setup({
 		opts = {},
 		dependencies = {
 			"nvim-lua/plenary.nvim",
-			"nvim-treesitter/nvim-treesitter",
+			{ "nvim-treesitter/nvim-treesitter", branch = "master" },
 		},
 	},
 
@@ -237,87 +237,87 @@ require("lazy").setup({
 		},
 	},
 	"fang2hou/blink-copilot",
-	{
-		"obsidian-nvim/obsidian.nvim",
-		version = "*", -- recommended, use latest release instead of latest commit
-		lazy = true,
-		ft = "markdown",
-		-- Replace the above line with this if you only want to load obsidian.nvim for markdown files in your vault:
-		-- event = {
-		--   -- If you want to use the home shortcut '~' here you need to call 'vim.fn.expand'.
-		--   -- E.g. "BufReadPre " .. vim.fn.expand "~" .. "/my-vault/*.md"
-		--   -- refer to `:h file-pattern` for more examples
-		--   "BufReadPre path/to/my-vault/*.md",
-		--   "BufNewFile path/to/my-vault/*.md",
-		-- },
-		---@module 'obsidian'
-		---@type obsidian.config
-		opts = {
-			workspaces = {
-				{
-					name = "personal",
-					path = "~/Notes",
-				},
-			},
-		},
-	},
-	{
-	{
-	{
-		"3rd/image.nvim",
-		build = false, -- so that it doesn't build the rock https://github.com/3rd/image.nvim/issues/91#issuecomment-2453430239
-		opts = {
-			processor = "magick_cli",
-		},
-		config = function()
-			require("image").setup({
-				-- backend = "kitty",
-				backend = "ueberzug",
-				-- Recommended: only preview image at cursor
-				integrations = {
-					markdown = {
-						-- clear_in_insert_mode = true,
-						-- only_render_image_at_cursor = true,
-						floating_windows = true,
-						-- only_render_image_at_cursor_mode = "popup",
-						-- resolve_image_path = function(document_path, image_path, fallback)
-						-- 	local working_dir = vim.fn.getcwd()
-						-- 	-- Format image path for Obsidian notes
-						-- 	if working_dir:find("home/gws/Notes") then
-						-- 		-- return working_dir .. "/assets/imgs/" .. image_path
-						-- 		return working_dir .. "/" .. image_path
-						-- 	end
-						-- 	-- Fallback to the default behavior
-						-- 	return fallback(document_path, image_path)
-						-- end,
-						resolve_image_path = function(document_path, image_path, fallback)
-							-- Define the absolute path to your Assets directory
-							local assets_dir = vim.fn.expand("~/Notes/assets/imgs") -- not the path to vault, but to the assets dir
-
-							-- Check if the image_path is already an absolute path
-							if image_path:match("^/") then
-								-- If it's an absolute path, leave it unchanged
-								return image_path
-							end
-
-							-- Construct the new image path by prepending the Assets directory
-							local new_image_path = assets_dir .. "/" .. image_path
-
-							-- Check if the constructed path exists
-							if vim.fn.filereadable(new_image_path) == 1 then
-								return new_image_path
-							else
-								-- If the file doesn't exist in Assets, fallback to default behavior
-								return fallback(document_path, image_path)
-							end
-						end,
-					},
-				},
-				tmux_show_only_in_active_window = true,
-				window_overlap_clear_enabled = true,
-			})
-			-- And ensure your markdown image paths point to the correct local or remote source
-		end,
-	},
+	-- {
+	-- 	"obsidian-nvim/obsidian.nvim",
+	-- 	version = "*", -- recommended, use latest release instead of latest commit
+	-- 	lazy = true,
+	-- 	ft = "markdown",
+	-- 	-- Replace the above line with this if you only want to load obsidian.nvim for markdown files in your vault:
+	-- 	-- event = {
+	-- 	--   -- If you want to use the home shortcut '~' here you need to call 'vim.fn.expand'.
+	-- 	--   -- E.g. "BufReadPre " .. vim.fn.expand "~" .. "/my-vault/*.md"
+	-- 	--   -- refer to `:h file-pattern` for more examples
+	-- 	--   "BufReadPre path/to/my-vault/*.md",
+	-- 	--   "BufNewFile path/to/my-vault/*.md",
+	-- 	-- },
+	-- 	---@module 'obsidian'
+	-- 	---@type obsidian.config
+	-- 	opts = {
+	-- 		workspaces = {
+	-- 			{
+	-- 				name = "personal",
+	-- 				path = "~/Notes",
+	-- 			},
+	-- 		},
+	-- 	},
+	-- },
+	-- {
+	-- {
+	-- {
+	-- 	"3rd/image.nvim",
+	-- 	build = false, -- so that it doesn't build the rock https://github.com/3rd/image.nvim/issues/91#issuecomment-2453430239
+	-- 	opts = {
+	-- 		processor = "magick_cli",
+	-- 	},
+	-- 	config = function()
+	-- 		require("image").setup({
+	-- 			-- backend = "kitty",
+	-- 			backend = "ueberzug",
+	-- 			-- Recommended: only preview image at cursor
+	-- 			integrations = {
+	-- 				markdown = {
+	-- 					-- clear_in_insert_mode = true,
+	-- 					-- only_render_image_at_cursor = true,
+	-- 					floating_windows = true,
+	-- 					-- only_render_image_at_cursor_mode = "popup",
+	-- 					-- resolve_image_path = function(document_path, image_path, fallback)
+	-- 					-- 	local working_dir = vim.fn.getcwd()
+	-- 					-- 	-- Format image path for Obsidian notes
+	-- 					-- 	if working_dir:find("home/gws/Notes") then
+	-- 					-- 		-- return working_dir .. "/assets/imgs/" .. image_path
+	-- 					-- 		return working_dir .. "/" .. image_path
+	-- 					-- 	end
+	-- 					-- 	-- Fallback to the default behavior
+	-- 					-- 	return fallback(document_path, image_path)
+	-- 					-- end,
+	-- 					resolve_image_path = function(document_path, image_path, fallback)
+	-- 						-- Define the absolute path to your Assets directory
+	-- 						local assets_dir = vim.fn.expand("~/Notes/assets/imgs") -- not the path to vault, but to the assets dir
+	--
+	-- 						-- Check if the image_path is already an absolute path
+	-- 						if image_path:match("^/") then
+	-- 							-- If it's an absolute path, leave it unchanged
+	-- 							return image_path
+	-- 						end
+	--
+	-- 						-- Construct the new image path by prepending the Assets directory
+	-- 						local new_image_path = assets_dir .. "/" .. image_path
+	--
+	-- 						-- Check if the constructed path exists
+	-- 						if vim.fn.filereadable(new_image_path) == 1 then
+	-- 							return new_image_path
+	-- 						else
+	-- 							-- If the file doesn't exist in Assets, fallback to default behavior
+	-- 							return fallback(document_path, image_path)
+	-- 						end
+	-- 					end,
+	-- 				},
+	-- 			},
+	-- 			tmux_show_only_in_active_window = true,
+	-- 			window_overlap_clear_enabled = true,
+	-- 		})
+	-- 		-- And ensure your markdown image paths point to the correct local or remote source
+	-- 	end,
+	-- },
 	{ "catppuccin/nvim", name = "catppuccin", priority = 1000 },
 })
