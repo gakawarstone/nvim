@@ -11,10 +11,6 @@ map("", "<down>", ':echoe "Use j"<CR>', default_opts)
 map("", "<left>", ':echoe "Use h"<CR>', default_opts)
 map("", "<right>", ':echoe "Use l"<CR>', default_opts)
 
--- map the leader key
-map("n", "<Space>", "", {})
-vim.g.mapleader = " " -- 'vim.g' sets global variables
-
 -- Toggle tree
 map("n", "<leader>tt", ":NvimTreeToggle<CR>", default_opts)
 map("n", "<leader>tf", ":NvimTreeFocus<CR>", default_opts)

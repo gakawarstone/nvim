@@ -1,6 +1,6 @@
 # Refactor init.lua loading order for Leader Key and Settings
 
-- STATUS: OPEN
+- STATUS: CLOSED
 - PRIORITY: 1
 
 ## Goal
