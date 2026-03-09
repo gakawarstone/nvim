@@ -14,7 +14,7 @@ vim.opt.rtp:prepend(lazypath)
 require("lazy").setup({
 	require("_plugins.snacks"),
 	"navarasu/onedark.nvim",
-	"nvim-treesitter/nvim-treesitter",
+	{ "nvim-treesitter/nvim-treesitter", branch = "master" },
 	{
 		"kyazdani42/nvim-tree.lua",
 		dependencies = "kyazdani42/nvim-web-devicons",
@@ -92,7 +92,7 @@ require("lazy").setup({
 		dependencies = { "nvim-tree/nvim-web-devicons", opt = true },
 	},
 
-	"ggandor/leap.nvim",
+	{ url = "https://codeberg.org/andyg/leap.nvim" },
 
 	"lhKipp/nvim-nu",
 
@@ -132,7 +132,7 @@ require("lazy").setup({
 		opts = {},
 		dependencies = {
 			"nvim-lua/plenary.nvim",
-			"nvim-treesitter/nvim-treesitter",
+			{ "nvim-treesitter/nvim-treesitter", branch = "master" },
 		},
 	},
 

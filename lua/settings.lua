@@ -1,3 +1,6 @@
+vim.g.mapleader = " "
+vim.g.maplocalleader = " "
+
 vim.opt.number = true -- Включаем нумерацию строк
 vim.opt.relativenumber = true -- Вкл. относительную нумерацию строк
 

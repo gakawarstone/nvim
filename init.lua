@@ -1,6 +1,6 @@
+require("settings")
 require("plugins")
 require("theme")
 require("keymaps")
 require("lang")
 require("utils")
-require("settings")
