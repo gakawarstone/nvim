@@ -1,4 +1,3 @@
-require("lang.base")
 require("lang.fish")
 require("lang.lua")
 require("lang.md")
