@@ -1,18 +1,4 @@
-local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
-if not vim.loop.fs_stat(lazypath) then
-	vim.fn.system({
-		"git",
-		"clone",
-		"--filter=blob:none",
-		"https://github.com/folke/lazy.nvim.git",
-		"--branch=stable", -- latest stable release
-		lazypath,
-	})
-end
-vim.opt.rtp:prepend(lazypath)
-
-require("lazy").setup({
-	require("_plugins.snacks"),
+return {
 	"navarasu/onedark.nvim",
 	{ "nvim-treesitter/nvim-treesitter", branch = "master" },
 	{
@@ -98,23 +84,11 @@ require("lazy").setup({
 
 	"sindrets/diffview.nvim",
 
-	require("_plugins.leap"),
-	require("_plugins.blink"),
-	-- require("_plugins.fastspell"),
 	{
 		"glacambre/firenvim",
 		build = ":call firenvim#install(0)",
 	},
 
-	-- |:ColorizerAttachToBuffer|
-	-- NOTE: error detected if opens file
-	-- {
-	-- 	"norcalli/nvim-colorizer.lua",
-	-- 	-- lazy = true,
-	-- 	config = function()
-	-- 		require("colorizer").setup()
-	-- 	end,
-	-- },
 	{
 		"uga-rosa/ccc.nvim",
 		config = function()
@@ -125,7 +99,6 @@ require("lazy").setup({
 			})
 		end,
 	},
-	require("_plugins.markdown_preview"),
 
 	{
 		"olimorris/codecompanion.nvim",
@@ -156,16 +129,6 @@ require("lazy").setup({
 		version = "*", -- recommended, use latest release instead of latest commit
 		lazy = true,
 		ft = "markdown",
-		-- Replace the above line with this if you only want to load obsidian.nvim for markdown files in your vault:
-		-- event = {
-		--   -- If you want to use the home shortcut '~' here you need to call 'vim.fn.expand'.
-		--   -- E.g. "BufReadPre " .. vim.fn.expand "~" .. "/my-vault/*.md"
-		--   -- refer to `:h file-pattern` for more examples
-		--   "BufReadPre path/to/my-vault/*.md",
-		--   "BufNewFile path/to/my-vault/*.md",
-		-- },
-		---@module 'obsidian'
-		---@type obsidian.config
 		opts = {
 			workspaces = {
 				{
@@ -215,4 +178,4 @@ require("lazy").setup({
 		end,
 	},
 	{ "catppuccin/nvim", name = "catppuccin", priority = 1000 },
-})
+}
