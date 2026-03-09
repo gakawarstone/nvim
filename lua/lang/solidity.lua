@@ -4,7 +4,7 @@ local fmt = require("conform")
 
 -- :LspInstall solc
 lsp.solidity.setup({
-	capabilities = Capabilities,
+	capabilities = require("utils.lsp").capabilities,
 	settings = {
 		-- example of global remapping
 		solidity = {

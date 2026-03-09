@@ -1,6 +1,8 @@
-Capabilities = require("blink.cmp").get_lsp_capabilities(capabilities)
+local M = {}
 
-On_attach = function(client, bufnr)
+M.capabilities = require("blink.cmp").get_lsp_capabilities()
+
+M.on_attach = function(client, bufnr)
 	vim.diagnostic.config({
 		virtual_text = true,
 	})
@@ -26,3 +28,5 @@ On_attach = function(client, bufnr)
 		vim.lsp.buf.format({ async = true })
 	end, bufopts)
 end
+
+return M

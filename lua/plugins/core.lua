@@ -1,9 +1,7 @@
 return {
-	"navarasu/onedark.nvim",
-	{ "nvim-treesitter/nvim-treesitter", branch = "master" },
 	{
-		"kyazdani42/nvim-tree.lua",
-		dependencies = "kyazdani42/nvim-web-devicons",
+		"nvim-tree/nvim-tree.lua",
+		dependencies = "nvim-tree/nvim-web-devicons",
 		config = function()
 			require("nvim-tree").setup({})
 		end,
@@ -78,8 +76,6 @@ return {
 		dependencies = { "nvim-tree/nvim-web-devicons", opt = true },
 	},
 
-	{ url = "https://codeberg.org/andyg/leap.nvim" },
-
 	"lhKipp/nvim-nu",
 
 	"sindrets/diffview.nvim",
@@ -105,11 +101,9 @@ return {
 		opts = {},
 		dependencies = {
 			"nvim-lua/plenary.nvim",
-			{ "nvim-treesitter/nvim-treesitter", branch = "master" },
 		},
 	},
 
-	-- "github/copilot.vim",
 	{
 		"zbirenbaum/copilot.lua",
 		cmd = "Copilot",
