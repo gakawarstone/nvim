@@ -128,92 +128,6 @@ require("lazy").setup({
 	require("_plugins.markdown_preview"),
 
 	{
-		"milanglacier/minuet-ai.nvim",
-		config = function()
-			-- require("minuet").setup({
-			-- 	-- provider = "openai_fim_compatible",
-			-- 	provider = "openai_fim_compatible",
-			-- 	-- provider = "gemini",
-			-- 	-- n_completions = 1, -- recommend for local model for resource saving
-			-- 	-- -- I recommend beginning with a small context window size and incrementally
-			-- 	-- -- expanding it, depending on your local computing power. A context window
-			-- 	-- -- of 512, serves as an good starting point to estimate your computing
-			-- 	-- -- power. Once you have a reliable estimate of your local computing power,
-			-- 	-- -- you should adjust the context window to a larger value.
-			-- 	context_window = 512,
-			-- 	provider_options = {
-			-- 		gemini = {
-			-- 			model = "gemini-2.0-flash",
-			-- 			-- system = "see [Prompt] section for the default value",
-			-- 			-- few_shots = "see [Prompt] section for the default value",
-			-- 			-- chat_input = "See [Prompt Section for default value]",
-			-- 			-- stream = true,
-			-- 			api_key = "GEMINI_API_KEY",
-			-- 			-- optional = {
-			-- 			-- 	generationConfig = {
-			-- 			-- 		maxOutputTokens = 256,
-			-- 			-- 		-- When using `gemini-2.5-flash`, it is recommended to entirely
-			-- 			-- 		-- disable thinking for faster completion retrieval.
-			-- 			-- 		thinkingConfig = {
-			-- 			-- 			thinkingBudget = 0,
-			-- 			-- 		},
-			-- 			-- 	},
-			-- 			-- 	safetySettings = {
-			-- 			-- 		{
-			-- 			-- 			-- HARM_CATEGORY_HATE_SPEECH,
-			-- 			-- 			-- HARM_CATEGORY_HARASSMENT
-			-- 			-- 			-- HARM_CATEGORY_SEXUALLY_EXPLICIT
-			-- 			-- 			category = "HARM_CATEGORY_DANGEROUS_CONTENT",
-			-- 			-- 			-- BLOCK_NONE
-			-- 			-- 			threshold = "BLOCK_ONLY_HIGH",
-			-- 			-- 		},
-			-- 			-- 	},
-			-- 			-- },
-			-- 		},
-			-- 		-- openai_fim_compatible = {
-			-- 		-- openai_compatible = {
-			-- 		-- 	-- For Windows users, TERM may not be present in environment variables.
-			-- 		-- 	-- Consider using APPDATA instead.
-			-- 		-- 	api_key = "TERM",
-			-- 		-- 	name = "Ollama",
-			-- 		-- 	-- end_point = "http://localhost:11434/v1/completions",
-			-- 		-- 	end_point = "http://localhost:11434/v1/generate",
-			-- 		-- 	model = "deepseek-r1:8b",
-			-- 		-- 	-- model = "JetBrains/Mellum-4b-base",
-			-- 		-- 	-- model = "deepcoder",
-			-- 		-- 	-- optional = {
-			-- 		-- 	-- 	max_tokens = 300,
-			-- 		-- 	-- 	top_p = 0.9,
-			-- 		-- 	-- },
-			-- 		-- },
-			-- 		openai_fim_compatible = {
-			-- 			api_key = "OPENROUTER_API_KEY",
-			-- 			end_point = "https://openrouter.ai/api/v1/chat/completions",
-			-- 			model = "deepseek/deepseek-r1-0528:free",
-			-- 			-- model = "deepseek/deepseek-r1-0528-qwen3-8b",
-			-- 			name = "Openrouter",
-			-- 			optional = {
-			-- 				-- max_tokens =200,
-			-- 				top_p = 0.9,
-			-- 				provider = {
-			-- 					-- Prioritize throughput for faster completion
-			-- 					sort = "throughput",
-			-- 				},
-			-- 			},
-			-- 		},
-			-- 	},
-			-- 	-- Your configuration options here
-			-- 	-- provider = "openai_compatible",
-			-- 	-- request_timeout = 2.5,
-			-- 	-- throttle = 1500, -- Increase to reduce costs and avoid rate limits
-			-- 	-- debounce = 600, -- Increase to reduce costs and avoid rate limits
-			-- 	-- provider_options = {
-			-- 	-- },
-			-- })
-		end,
-	},
-
-	{
 		"olimorris/codecompanion.nvim",
 		opts = {},
 		dependencies = {
@@ -262,61 +176,42 @@ require("lazy").setup({
 		},
 	},
 	{
-	{
-	{
-		"3rd/image.nvim",
-		build = false, -- so that it doesn't build the rock https://github.com/3rd/image.nvim/issues/91#issuecomment-2453430239
+		"dmtrKovalenko/fff.nvim",
+		build = "cargo build --release",
 		opts = {
-			processor = "magick_cli",
+			-- pass here all the options
 		},
+	},
+	{
+		"nullromo/fishtank.nvim",
+		opts = {}, -- specify options here
+		config = function(_, opts)
+			local fishtank = require("fishtank")
+			fishtank.setup(opts)
+		end,
+	},
+	{
+		"cajames/copy-reference.nvim",
+		opts = {
+			register = "+",
+		}, -- optional configuration
+		keys = {
+			{ "yr", "<cmd>CopyReference file<cr>", mode = { "n", "v" }, desc = "Copy file path" },
+			{ "yrr", "<cmd>CopyReference line<cr>", mode = { "n", "v" }, desc = "Copy file:line reference" },
+		},
+	},
+
+	{
+		"yousefhadder/markdown-plus.nvim",
+		ft = "markdown",
 		config = function()
-			require("image").setup({
-				-- backend = "kitty",
-				backend = "ueberzug",
-				-- Recommended: only preview image at cursor
-				integrations = {
-					markdown = {
-						-- clear_in_insert_mode = true,
-						-- only_render_image_at_cursor = true,
-						floating_windows = true,
-						-- only_render_image_at_cursor_mode = "popup",
-						-- resolve_image_path = function(document_path, image_path, fallback)
-						-- 	local working_dir = vim.fn.getcwd()
-						-- 	-- Format image path for Obsidian notes
-						-- 	if working_dir:find("home/gws/Notes") then
-						-- 		-- return working_dir .. "/assets/imgs/" .. image_path
-						-- 		return working_dir .. "/" .. image_path
-						-- 	end
-						-- 	-- Fallback to the default behavior
-						-- 	return fallback(document_path, image_path)
-						-- end,
-						resolve_image_path = function(document_path, image_path, fallback)
-							-- Define the absolute path to your Assets directory
-							local assets_dir = vim.fn.expand("~/Notes/assets/imgs") -- not the path to vault, but to the assets dir
-
-							-- Check if the image_path is already an absolute path
-							if image_path:match("^/") then
-								-- If it's an absolute path, leave it unchanged
-								return image_path
-							end
-
-							-- Construct the new image path by prepending the Assets directory
-							local new_image_path = assets_dir .. "/" .. image_path
-
-							-- Check if the constructed path exists
-							if vim.fn.filereadable(new_image_path) == 1 then
-								return new_image_path
-							else
-								-- If the file doesn't exist in Assets, fallback to default behavior
-								return fallback(document_path, image_path)
-							end
-						end,
+			require("markdown-plus").setup({
+				table = {
+					keymaps = { -- Table-specific keymaps (prefix based)
+						prefix = "<leader><leader>t", -- default: "<leader>t"  prefix for table ops
 					},
 				},
-				tmux_show_only_in_active_window = true,
-				window_overlap_clear_enabled = true,
 			})
-			-- And ensure your markdown image paths point to the correct local or remote source
 		end,
 	},
 	{ "catppuccin/nvim", name = "catppuccin", priority = 1000 },
