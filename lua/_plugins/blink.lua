@@ -58,7 +58,7 @@ return {
 				copilot = {
 					name = "copilot",
 					module = "blink-copilot",
-					timeout_ms = 300,
+					timeout_ms = 3000,
 					score_offset = 50,
 					async = true,
 				},
