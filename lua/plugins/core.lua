@@ -133,6 +133,7 @@ return {
 			panel = { enabled = false },
 			filetypes = {
 				python = true,
+				cs = true,
 				["*"] = false,
 			},
 		},
