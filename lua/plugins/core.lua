@@ -155,7 +155,9 @@ return {
 	},
 	{
 		"dmtrKovalenko/fff.nvim",
-		build = "cargo build --release",
+		build = function()
+			require("fff.download").download_or_build_binary()
+		end,
 		opts = {
 			-- pass here all the options
 		},
