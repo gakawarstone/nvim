@@ -21,6 +21,7 @@ map("n", "gt", "<C-o>", default_opts)
 -- Telescope
 map("n", "<leader>ff", ":Telescope find_files<CR>", default_opts)
 map("n", "<leader>fg", ":Telescope live_grep<CR>", default_opts)
+map("n", "<leader>ft", ":Telescope colorscheme enable_preview=true<CR>", default_opts)
 map("n", "<leader>gc", ":Telescope git_commits<CR>", default_opts)
 map("n", "<leader>gb", ":Telescope git_branches<CR>", default_opts)
 
