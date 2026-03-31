@@ -1,10 +1,7 @@
--- local capabilities = require("cmp_nvim_lsp").default_capabilities()
-local lsp = require("lspconfig")
 local fmt = require("conform")
 
 -- :LspInstall solc
-lsp.solidity.setup({
-	capabilities = require("utils.lsp").capabilities,
+vim.lsp.config("solidity", {
 	settings = {
 		-- example of global remapping
 		solidity = {
@@ -16,6 +13,7 @@ lsp.solidity.setup({
 		},
 	},
 })
+vim.lsp.enable("solidity")
 
 -- npm install -g prettier prettier-plugin-solidity
 fmt.formatters_by_ft.solidity = { "prettier" }

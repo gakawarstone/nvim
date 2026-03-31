@@ -1,9 +1,5 @@
-local lsp = require("lspconfig")
 local fmt = require("conform")
 
-lsp.ts_ls.setup({
-	capabilities = require("utils.lsp").capabilities,
-	on_attach = require("utils.lsp").on_attach,
-})
+vim.lsp.enable("ts_ls")
 
 fmt.formatters_by_ft.javascript = { "prettier" }

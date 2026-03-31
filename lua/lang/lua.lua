@@ -1,13 +1,10 @@
-local lspconfig = require("lspconfig")
 local fmt = require("conform")
 
 local runtime_path = vim.split(package.path, ";")
 table.insert(runtime_path, "lua/?.lua")
 table.insert(runtime_path, "lua/?/init.lua")
 
-lspconfig.lua_ls.setup({
-	capabilities = require("utils.lsp").capabilities,
-	on_attach = require("utils.lsp").on_attach,
+vim.lsp.config("lua_ls", {
 	settings = {
 		Lua = {
 			runtime = {
@@ -31,5 +28,6 @@ lspconfig.lua_ls.setup({
 		},
 	},
 })
+vim.lsp.enable("lua_ls")
 
 fmt.formatters_by_ft.lua = { "stylua" }

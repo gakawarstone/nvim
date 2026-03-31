@@ -1,10 +1,6 @@
-local lsp = require("lspconfig")
 local fmt = require("conform")
 
-lsp.jdtls.setup({
-	capabilities = require("utils.lsp").capabilities,
-	on_attach = require("utils.lsp").on_attach,
-})
+vim.lsp.enable("jdtls")
 
 -- fmt.formatters_by_ft.java = { "google-java-format" }
 fmt.formatters_by_ft.java = { "clang-format" }
@@ -12,8 +8,7 @@ fmt.formatters_by_ft.java = { "clang-format" }
 vim.api.nvim_create_autocmd("LspAttach", {
 	callback = function(args)
 		local client = vim.lsp.get_client_by_id(args.data.client_id)
-		-- Example: Disable for TypeScript/JavaScript (tsserver)
-		if client.name == "jdtls" then
+		if client and client.name == "jdtls" then
 			client.server_capabilities.semanticTokensProvider = nil
 		end
 	end,
