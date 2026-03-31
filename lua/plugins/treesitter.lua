@@ -7,6 +7,7 @@ return {
 				ensure_installed = {
 					"lua",
 					"python",
+					"kotlin",
 					"v",
 					"solidity",
 					"markdown",

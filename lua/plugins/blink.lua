@@ -41,7 +41,7 @@ return {
 
 		sources = {
 			-- default = { "lsp", "path", "snippets", "buffer" },
-			default = { "lsp", "path", "snippets", "buffer", "copilot" },
+			default = { "lsp", "path", "snippets", "buffer" },
 			-- default = { "lsp", "path", "snippets", "buffer", "minuet" },
 			-- default = { "minuet" },
 			-- default = { "copilot" },
@@ -54,13 +54,6 @@ return {
 					-- since minuet.config.request_timeout is in seconds
 					timeout_ms = 300,
 					score_offset = 50, -- Gives minuet higher priority among suggestions
-				},
-				copilot = {
-					name = "copilot",
-					module = "blink-copilot",
-					timeout_ms = 3000,
-					score_offset = 50,
-					async = true,
 				},
 			},
 		},

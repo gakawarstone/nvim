@@ -1,8 +1,6 @@
 require("utils.tree")
 require("utils.format")
 require("utils.statusline")
-require("utils.obsidian")
-require("utils.mason")
 require("utils.lsp")
 require("utils.telescope")
 require("utils.term")
