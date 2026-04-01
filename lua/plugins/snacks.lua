@@ -13,10 +13,21 @@ return {
 			-- refer to the configuration section below
 		},
 		picker = {
+			enabled = true,
 			layout = "telescope",
 		},
 		matcher = {
 			frecency = true, -- frecency bonus
 		},
 	},
+	config = function(_, opts)
+		require("snacks").setup(opts)
+		vim.api.nvim_create_autocmd("VimEnter", {
+			callback = function()
+				if vim.fn.argv(0) == "" then
+					Snacks.picker.files({ hidden = true })
+				end
+			end,
+		})
+	end,
 }

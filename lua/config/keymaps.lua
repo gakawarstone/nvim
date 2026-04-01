@@ -18,12 +18,13 @@ map("n", "<leader>tf", ":NvimTreeFocus<CR>", default_opts)
 -- Jump list gt
 map("n", "gt", "<C-o>", default_opts)
 
--- Telescope
-map("n", "<leader>ff", ":Telescope find_files<CR>", default_opts)
-map("n", "<leader>fg", ":Telescope live_grep<CR>", default_opts)
-map("n", "<leader>ft", ":Telescope colorscheme enable_preview=true<CR>", default_opts)
-map("n", "<leader>gc", ":Telescope git_commits<CR>", default_opts)
-map("n", "<leader>gb", ":Telescope git_branches<CR>", default_opts)
+-- Snacks
+map("n", "<leader>ff", function() Snacks.picker.files({ hidden = true }) end, default_opts)
+map("n", "<leader>fg", function() Snacks.picker.grep() end, default_opts)
+map("n", "<leader>ft", function() Snacks.picker.colorschemes() end, default_opts)
+map("n", "<leader>gc", function() Snacks.picker.git_commits() end, default_opts)
+map("n", "<leader>gb", function() Snacks.picker.git_branches() end, default_opts)
+
 
 map("n", "<leader>cn", ":cn<CR>", default_opts)
 map("n", "<leader>cp", ":cp<CR>", default_opts)
