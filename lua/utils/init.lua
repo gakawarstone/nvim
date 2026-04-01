@@ -1,6 +1,0 @@
-require("utils.tree")
-require("utils.format")
-require("utils.statusline")
-require("utils.lsp")
-require("utils.telescope")
-require("utils.term")

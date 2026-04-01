@@ -11,3 +11,10 @@ vim.opt.expandtab = true -- use spaces instead of tabs
 vim.opt.shiftwidth = 4 -- shift 4 spaces when tab
 vim.opt.tabstop = 4 -- 1 tab == 4 spaces
 vim.opt.smartindent = true -- autoindent new lines
+
+vim.api.nvim_create_autocmd("TermOpen", {
+	pattern = "*",
+	callback = function()
+		vim.opt_local.wrap = true
+	end,
+})
