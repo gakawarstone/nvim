@@ -26,7 +26,7 @@ return {
 		vim.api.nvim_create_autocmd("VimEnter", {
 			callback = function()
 				if vim.fn.argv(0) == "" then
-					Snacks.picker.files({ hidden = true })
+					Snacks.picker.smart({ hidden = true })
 				end
 			end,
 		})
