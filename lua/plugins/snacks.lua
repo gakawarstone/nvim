@@ -3,15 +3,25 @@ return {
 	priority = 1000,
 	lazy = false,
 	opts = {
+		statuscolumn = { enabled = true },
 		lazygit = { enabled = true },
-		quickfile = {
-			-- your quickfile configuration comes here
-			-- or leave it empty to use the default settings
-			-- refer to the configuration section below
+		quickfile = { enabled = true },
+		select = { enabled = true },
+		explorer = {
+			enabled = true,
 		},
 		picker = {
 			enabled = true,
 			layout = "telescope",
+			sources = {
+				explorer = {
+					layout = {
+						preset = "sidebar",
+						auto_hide = { "input" },
+					},
+					focus = "list",
+				},
+			},
 		},
 		input = {
 			enabled = true,
