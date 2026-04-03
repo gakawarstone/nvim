@@ -12,19 +12,32 @@ map("", "<left>", ':echoe "Use h"<CR>', default_opts)
 map("", "<right>", ':echoe "Use l"<CR>', default_opts)
 
 -- Toggle tree
-map("n", "<leader>tt", ":NvimTreeToggle<CR>", default_opts)
-map("n", "<leader>tf", ":NvimTreeFocus<CR>", default_opts)
+map("n", "<leader>tt", function()
+	Snacks.picker.explorer({ hidden = true })
+end, default_opts)
+map("n", "<leader>tf", function()
+	Snacks.picker.explorer({ hidden = true, reveal = true })
+end, default_opts)
 
 -- Jump list gt
 map("n", "gt", "<C-o>", default_opts)
 
 -- Snacks
-map("n", "<leader>ff", function() Snacks.picker.files({ hidden = true }) end, default_opts)
-map("n", "<leader>fg", function() Snacks.picker.grep() end, default_opts)
-map("n", "<leader>ft", function() Snacks.picker.colorschemes() end, default_opts)
-map("n", "<leader>gc", function() Snacks.picker.git_commits() end, default_opts)
-map("n", "<leader>gb", function() Snacks.picker.git_branches() end, default_opts)
-
+map("n", "<leader>ff", function()
+	Snacks.picker.files({ hidden = true })
+end, default_opts)
+map("n", "<leader>fg", function()
+	Snacks.picker.grep()
+end, default_opts)
+map("n", "<leader>ft", function()
+	Snacks.picker.colorschemes()
+end, default_opts)
+map("n", "<leader>gc", function()
+	Snacks.picker.git_log()
+end, default_opts)
+map("n", "<leader>gb", function()
+	Snacks.picker.git_branches()
+end, default_opts)
 
 map("n", "<leader>cn", ":cn<CR>", default_opts)
 map("n", "<leader>cp", ":cp<CR>", default_opts)
