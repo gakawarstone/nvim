@@ -40,22 +40,8 @@ return {
 		},
 
 		sources = {
-			-- default = { "lsp", "path", "snippets", "buffer" },
 			default = { "lsp", "path", "snippets", "buffer" },
-			-- default = { "lsp", "path", "snippets", "buffer", "minuet" },
-			-- default = { "minuet" },
-			-- default = { "copilot" },
-			providers = {
-				minuet = {
-					name = "minuet",
-					module = "minuet.blink",
-					async = true,
-					-- Should match minuet.config.request_timeout * 1000,
-					-- since minuet.config.request_timeout is in seconds
-					timeout_ms = 300,
-					score_offset = 50, -- Gives minuet higher priority among suggestions
-				},
-			},
+			providers = {},
 		},
 
 		-- (Default) Rust fuzzy matcher for typo resistance and significantly better performance
