@@ -1,5 +1,5 @@
-local fmt = require("conform")
+require("plugins.mason").ensure_installed({ "clangd", "clang-format" })
 
 vim.lsp.enable("clangd")
 
-fmt.formatters_by_ft.c = { "clang-format" }
+require("conform").formatters_by_ft.c = { "clang-format" }

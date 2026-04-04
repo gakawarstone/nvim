@@ -1,6 +1,5 @@
-local fmt = require("conform")
+require("plugins.mason").ensure_installed({ "pyright", "ruff" })
 
--- Use pyslp cause of cpu 100 bug pyright
 vim.lsp.enable("pyright")
 
-fmt.formatters_by_ft.python = { "ruff_format" }
+require("conform").formatters_by_ft.python = { "ruff_format" }

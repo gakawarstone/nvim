@@ -1,9 +1,7 @@
-local fmt = require("conform")
+require("plugins.mason").ensure_installed({ "solc", "prettier" })
 
--- :LspInstall solc
 vim.lsp.config("solidity", {
 	settings = {
-		-- example of global remapping
 		solidity = {
 			includePath = "",
 			remapping = {
@@ -16,4 +14,4 @@ vim.lsp.config("solidity", {
 vim.lsp.enable("solidity")
 
 -- npm install -g prettier prettier-plugin-solidity
-fmt.formatters_by_ft.solidity = { "prettier" }
+require("conform").formatters_by_ft.solidity = { "prettier" }

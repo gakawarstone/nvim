@@ -1,5 +1,5 @@
-local fmt = require("conform")
+require("plugins.mason").ensure_installed({ "gopls", "gofmt" })
 
 vim.lsp.enable("gopls")
 
-fmt.formatters_by_ft.go = { "gofmt" }
+require("conform").formatters_by_ft.go = { "gofmt" }

@@ -1,5 +1,5 @@
-local fmt = require("conform")
+require("plugins.mason").ensure_installed({ "typescript-language-server", "prettier" })
 
 vim.lsp.enable("ts_ls")
 
-fmt.formatters_by_ft.typescript = { "prettier" }
+require("conform").formatters_by_ft.typescript = { "prettier" }

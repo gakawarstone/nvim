@@ -1,3 +1,3 @@
-local fmt = require("conform")
+require("plugins.mason").ensure_installed({ "prettier" })
 
-fmt.formatters_by_ft.json = { "prettier" }
+require("conform").formatters_by_ft.json = { "prettier" }

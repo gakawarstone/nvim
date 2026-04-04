@@ -1,9 +1,8 @@
-local fmt = require("conform")
+require("plugins.mason").ensure_installed({ "jdtls", "clang-format" })
 
 vim.lsp.enable("jdtls")
 
--- fmt.formatters_by_ft.java = { "google-java-format" }
-fmt.formatters_by_ft.java = { "clang-format" }
+require("conform").formatters_by_ft.java = { "clang-format" }
 
 vim.api.nvim_create_autocmd("LspAttach", {
 	callback = function(args)

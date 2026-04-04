@@ -1,6 +1,5 @@
-local fmt = require("conform")
+require("plugins.mason").ensure_installed({ "csharp-ls", "csharpier" })
 
--- dotnet tool install --global csharp-ls
 vim.lsp.enable("csharp_ls")
 
-fmt.formatters_by_ft.cs = { "csharpier" }
+require("conform").formatters_by_ft.cs = { "csharpier" }
