@@ -3,7 +3,11 @@ return {
 	priority = 1000,
 	lazy = false,
 	opts = {
-		statuscolumn = { enabled = true },
+		statuscolumn = {
+			enabled = true,
+			left = { "mark", "sign", "git" },
+			right = { "fold" },
+		},
 		lazygit = { enabled = true },
 		quickfile = { enabled = true },
 		select = { enabled = true },
