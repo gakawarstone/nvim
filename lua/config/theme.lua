@@ -9,4 +9,9 @@ require("nvim-web-devicons").setup({
 	},
 })
 
-vim.cmd("colorscheme catppuccin")
+local theme = vim.env.GKTHEME
+if theme == "light" then
+	vim.cmd("colorscheme catppuccin-latte")
+else
+	vim.cmd("colorscheme catppuccin-mocha")
+end
