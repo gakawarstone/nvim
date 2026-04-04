@@ -10,6 +10,19 @@ return {
 			})
 		end
 
+		-- Custom diagnostic signs with icons (Neovim 0.11+)
+		vim.diagnostic.config({
+			virtual_text = true,
+			signs = {
+				text = {
+					[vim.diagnostic.severity.ERROR] = "󰅙",
+					[vim.diagnostic.severity.WARN] = "󰀪",
+					[vim.diagnostic.severity.INFO] = "󰋽",
+					[vim.diagnostic.severity.HINT] = "󰌶",
+				},
+			},
+		})
+
 		vim.api.nvim_create_autocmd("LspAttach", {
 			callback = function(args)
 				local bufnr = args.buf
