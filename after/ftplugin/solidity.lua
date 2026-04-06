@@ -13,5 +13,4 @@ vim.lsp.config("solidity", {
 })
 vim.lsp.enable("solidity")
 
--- npm install -g prettier prettier-plugin-solidity
 require("conform").formatters_by_ft.solidity = { "prettier" }
