@@ -28,10 +28,6 @@ return {
 				local bufnr = args.buf
 				-- local client = vim.lsp.get_client_by_id(args.data.client_id)
 
-				vim.diagnostic.config({
-					virtual_text = true,
-				})
-
 				-- Mappings.
 				-- See `:help vim.lsp.*` for documentation on any of the below functions
 				local bufopts = { noremap = true, silent = true, buffer = bufnr }
