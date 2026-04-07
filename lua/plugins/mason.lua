@@ -13,9 +13,15 @@ M.opts = {
 }
 
 M.ensure_installed = function(packages)
-	local mr = require("mason-registry")
+	local ok, mr = pcall(require, "mason-registry")
+	if not ok then
+		vim.notify("mason registry not available; skipping ensure_installed", vim.log.levels.WARN)
+		return
+	end
 	for _, name in ipairs(packages) do
-		if mr.has_package(name) then
+		if not mr.has_package(name) then
+			vim.notify(string.format("mason: unknown package %q; skipping", name), vim.log.levels.WARN)
+		else
 			local p = mr.get_package(name)
 			if not p:is_installed() then
 				p:install()
