@@ -1,0 +1,3 @@
+return {
+	-- "BoundaryML/baml.nvim",
+}
