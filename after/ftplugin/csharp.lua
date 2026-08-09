@@ -1,4 +1,4 @@
-require("plugins.mason").ensure_installed({ "csharp-ls", "csharpier" })
+require("plugins.mason").ensure_installed({ "csharp-language-server", "csharpier" })
 
 vim.lsp.enable("csharp_ls")
 

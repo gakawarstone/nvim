@@ -1,6 +1,6 @@
 require("plugins.mason").ensure_installed({
-	"angularls",
-	"tailwindcss",
+	"angular-language-server",
+	"tailwindcss-language-server",
 	"html-lsp",
 	"emmet-language-server",
 	"prettier",

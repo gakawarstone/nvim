@@ -1,4 +1,4 @@
-require("plugins.mason").ensure_installed({ "typescript-language-server", "prettier", "tailwindcss" })
+require("plugins.mason").ensure_installed({ "typescript-language-server", "prettier", "tailwindcss-language-server" })
 
 vim.lsp.enable("ts_ls")
 vim.lsp.enable("tailwindcss")

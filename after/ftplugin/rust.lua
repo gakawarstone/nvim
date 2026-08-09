@@ -1,4 +1,4 @@
-require("plugins.mason").ensure_installed({ "rust_analyzer", "rustfmt" })
+require("plugins.mason").ensure_installed({ "rust-analyzer", "rustfmt" })
 
 vim.lsp.enable("rust_analyzer")
 

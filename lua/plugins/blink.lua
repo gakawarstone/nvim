@@ -49,7 +49,11 @@ return {
 		-- when the Rust fuzzy matcher is not available, by using `implementation = "prefer_rust"`
 		--
 		-- See the fuzzy documentation for more information
-		fuzzy = { implementation = "prefer_rust_with_warning" },
+		fuzzy = {
+			-- Release binaries may target a conventional Linux dynamic linker.
+			-- The Lua matcher avoids that incompatibility when launched by Nix.
+			implementation = vim.env.NVIM_NIX == "1" and "lua" or "prefer_rust_with_warning",
+		},
 	},
 	opts_extend = { "sources.default" },
 }
