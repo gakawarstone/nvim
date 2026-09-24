@@ -28,7 +28,14 @@ in
 
   config = lib.mkIf cfg.enable {
     home.packages = [
-      cfg.package
+      (pkgs.writeShellApplication {
+        name = "nvim";
+        runtimeInputs = [ cfg.package ];
+        text = ''
+          export NVIM_NIX=1
+          exec ${cfg.package}/bin/nvim "$@"
+        '';
+      })
       pkgs.curl
       pkgs.fd
       pkgs.gcc
@@ -43,7 +50,6 @@ in
     ]
     ++ cfg.extraPackages;
 
-    home.sessionVariables.NVIM_NIX = "1";
     xdg.configFile."nvim".source = lib.cleanSource ../.;
   };
 }
