@@ -1,4 +1,4 @@
-require("plugins.mason").ensure_installed({ "prettier" })
+require("plugins.mason").ensure_installed({ "solc", "prettier" })
 
 vim.lsp.config("solidity", {
 	settings = {

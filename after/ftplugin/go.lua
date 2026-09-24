@@ -1,4 +1,4 @@
-require("plugins.mason").ensure_installed({ "gopls" })
+require("plugins.mason").ensure_installed({ "gopls", "gofmt" })
 
 vim.lsp.enable("gopls")
 
