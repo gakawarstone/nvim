@@ -13,6 +13,12 @@ M.opts = {
 }
 
 M.ensure_installed = function(packages)
+	-- Nix provides language tools through PATH. Mason-downloaded binaries are
+	-- often incompatible with NixOS's dynamic linker and are not reproducible.
+	if vim.env.NVIM_NIX == "1" then
+		return
+	end
+
 	local ok, mr = pcall(require, "mason-registry")
 	if not ok then
 		vim.notify("mason registry not available; skipping ensure_installed", vim.log.levels.WARN)
